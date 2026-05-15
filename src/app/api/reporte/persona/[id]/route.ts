@@ -59,7 +59,7 @@ export async function GET(
     
     const telefono = persona.telefono || 'No registrado'
     const objetivo = Number(persona.total_objetivo || 0)
-    const totalAbonado = persona.abonos.reduce((sum, a) => sum + Number(a.cantidad), 0)
+    const totalAbonado = persona.abonos.reduce((sum: number, a: any) => sum + Number(a.cantidad), 0)
     const faltan = objetivo - totalAbonado
 
     doc.text(`Telefono: ${telefono}`, 14, 70)

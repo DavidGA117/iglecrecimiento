@@ -50,7 +50,7 @@ export default function DashboardPage() {
     return <p className="text-center text-gray-500 py-8">No hay datos disponibles</p>
   }
 
-  const pieData = data.personasConMasAbono.map((p, i) => ({
+  const pieData = data.personasConMasAbono.map((p: any, i: number) => ({
     name: p.nombre.length > 15 ? p.nombre.substring(0, 15) + '...' : p.nombre,
     value: p.abonado,
     color: COLORS[i % COLORS.length]
@@ -139,7 +139,7 @@ export default function DashboardPage() {
                     dataKey="value"
                     label={({ name, percent }) => `${name} ${((percent || 0) * 100).toFixed(0)}%`}
                   >
-                    {pieData.map((entry, index) => (
+                    {pieData.map((entry: any, index: number) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />
                     ))}
                   </Pie>
@@ -159,7 +159,7 @@ export default function DashboardPage() {
           <CardContent>
             <div className="space-y-4">
               {data.ultimosAbonos.length > 0 ? (
-                data.ultimosAbonos.map((abono) => (
+                data.ultimosAbonos.map((abono: any) => (
                   <div key={abono.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div>
                       <p className="font-medium text-gray-900">{abono.personas?.nombre || 'Sin nombre'}</p>
@@ -187,7 +187,7 @@ export default function DashboardPage() {
         <CardContent>
           <div className="space-y-4">
             {data.personasConMasAbono.length > 0 ? (
-              data.personasConMasAbono.map((persona, index) => (
+              data.personasConMasAbono.map((persona: any, index: number) => (
                 <div key={index} className="space-y-2">
                   <div className="flex justify-between">
                     <span className="font-medium text-gray-900">{persona.nombre}</span>

@@ -143,7 +143,7 @@ export default function PersonaDetallePage({ params }: { params: Promise<{ id: s
           <CardContent>
             {persona.abonos.length > 0 ? (
               <div className="space-y-3">
-                {persona.abonos.map((abono) => (
+                {persona.abonos.map((abono: any) => (
                   <div key={abono.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
                     <div>
                       <p className="font-medium text-blue-600">

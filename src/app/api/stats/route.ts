@@ -10,11 +10,11 @@ export async function GET() {
       include: { personas: { select: { nombre: true } } }
     })
 
-    const totalRecaudado = abonos.reduce((sum, a) => sum + Number(a.cantidad), 0)
-    const totalObjetivo = personas.reduce((sum, p) => sum + Number(p.total_objetivo), 0)
+    const totalRecaudado = abonos.reduce((sum: number, a: any) => sum + Number(a.cantidad), 0)
+    const totalObjetivo = personas.reduce((sum: number, p: any) => sum + Number(p.total_objetivo), 0)
 
     const personasConMasAbono = personas
-      .map(p => ({
+      .map((p: any) => ({
         nombre: p.nombre,
         abonado: Number(p.total_abonado),
         objetivo: Number(p.total_objetivo),

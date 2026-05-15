@@ -96,7 +96,7 @@ export default function AdminLayout({
           </div>
 
           <nav className="p-4 space-y-1.5">
-            {navItems.map((item) => {
+            {navItems.map((item: any) => {
               const Icon = item.icon
               const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
               return (

@@ -299,7 +299,7 @@ export default function PersonasPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filteredPersonas.map((persona) => {
+                {filteredPersonas.map((persona: any) => {
                   const progreso = persona.total_objetivo > 0 
                     ? (Number(persona.total_abonado) / Number(persona.total_objetivo)) * 100 
                     : 0

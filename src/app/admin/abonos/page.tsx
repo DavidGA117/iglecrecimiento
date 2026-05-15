@@ -68,7 +68,7 @@ export default function AbonosPage() {
     a.personas?.nombre.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
-  const totalAbonos = abonos.reduce((sum, a) => sum + Number(a.cantidad), 0)
+  const totalAbonos = abonos.reduce((sum: number, a: any) => sum + Number(a.cantidad), 0)
 
   const handleSubmit = async () => {
     if (!formData.persona_id || !formData.cantidad) {
@@ -130,7 +130,7 @@ export default function AbonosPage() {
                     <SelectValue placeholder="Selecciona una persona" />
                   </SelectTrigger>
                   <SelectContent className="bg-white">
-                    {personas.map((persona) => (
+                    {personas.map((persona: any) => (
                       <SelectItem key={persona.id} value={persona.id}>
                         {persona.nombre} - ${Number(persona.total_abonado).toLocaleString('es-CO')} / ${Number(persona.total_objetivo).toLocaleString('es-CO')}
                       </SelectItem>
@@ -252,7 +252,7 @@ export default function AbonosPage() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {filteredAbonos.map((abono) => (
+                {filteredAbonos.map((abono: any) => (
                   <TableRow key={abono.id}>
                     <TableCell>
                       {abono.fecha ? new Date(abono.fecha).toLocaleDateString('es-CO') : '-'}
