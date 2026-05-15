@@ -64,7 +64,7 @@ export default function AbonosPage() {
     fetchData()
   }, [])
 
-  const filteredAbonos = abonos.filter(a => 
+  const filteredAbonos = abonos.filter((a: any) => 
     a.personas?.nombre.toLowerCase().includes(searchTerm.toLowerCase())
   )
 

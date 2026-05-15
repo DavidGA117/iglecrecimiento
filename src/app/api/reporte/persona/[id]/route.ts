@@ -89,7 +89,7 @@ export async function GET(
       doc.setTextColor(150, 150, 150)
       doc.text('No hay abonos registrados', 14, 145)
     } else {
-      const abonosData = persona.abonos.map(a => [
+      const abonosData = persona.abonos.map((a: any) => [
         a.fecha ? new Date(a.fecha).toLocaleDateString('es-CO') : '-',
         a.tipo === 'hotel' ? 'Hotel' : a.tipo === 'transporte' ? 'Transporte' : 'Seminario',
         `$${Number(a.cantidad).toLocaleString('es-CO')}`,

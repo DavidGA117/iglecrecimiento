@@ -42,7 +42,7 @@ export default function ConsultaPage() {
     fetchPersonas()
   }, [])
 
-  const filteredPersonas = personas.filter(p => 
+  const filteredPersonas = personas.filter((p: any) => 
     p.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
     (p.telefono && p.telefono.includes(searchTerm))
   )

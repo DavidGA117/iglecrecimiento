@@ -20,7 +20,7 @@ export async function GET() {
         objetivo: Number(p.total_objetivo),
         progreso: Number(p.total_objetivo) > 0 ? (Number(p.total_abonado) / Number(p.total_objetivo)) * 100 : 0
       }))
-      .sort((a, b) => b.abonado - a.abonado)
+      .sort((a: any, b: any) => b.abonado - a.abonado)
       .slice(0, 5)
 
     return NextResponse.json({
