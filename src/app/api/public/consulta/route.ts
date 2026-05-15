@@ -12,11 +12,11 @@ export async function GET() {
       }
     })
 
-    const result = personas.map(p => {
-      const total = p.abonos.reduce((sum, a) => sum + Number(a.cantidad || 0), 0)
-      const hotel = p.abonos.filter(a => a.tipo === 'hotel').reduce((sum, a) => sum + Number(a.cantidad || 0), 0)
-      const transporte = p.abonos.filter(a => a.tipo === 'transporte').reduce((sum, a) => sum + Number(a.cantidad || 0), 0)
-      const seminario = p.abonos.filter(a => !a.tipo || a.tipo === 'seminario').reduce((sum, a) => sum + Number(a.cantidad || 0), 0)
+    const result = personas.map((p: any) => {
+      const total = p.abonos.reduce((sum: number, a: any) => sum + Number(a.cantidad || 0), 0)
+      const hotel = p.abonos.filter((a: any) => a.tipo === 'hotel').reduce((sum: number, a: any) => sum + Number(a.cantidad || 0), 0)
+      const transporte = p.abonos.filter((a: any) => a.tipo === 'transporte').reduce((sum: number, a: any) => sum + Number(a.cantidad || 0), 0)
+      const seminario = p.abonos.filter((a: any) => !a.tipo || a.tipo === 'seminario').reduce((sum: number, a: any) => sum + Number(a.cantidad || 0), 0)
       
       return {
         id: p.id,
