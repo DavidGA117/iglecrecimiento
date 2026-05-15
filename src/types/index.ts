@@ -11,6 +11,7 @@ export interface Persona {
 export interface Abono {
   id: string
   cantidad: number
+  tipo: string
   fecha: Date
   registradoPor: string | null
   personaId: string
