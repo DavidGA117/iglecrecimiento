@@ -49,14 +49,14 @@ export async function GET(request: NextRequest) {
       }
       doc.text(`Objetivo: $${Number(persona.total_objetivo).toLocaleString('es-CO')}`, 14, yPos + 12)
 
-      const abonosData = persona.abonos.map(a => [
+      const abonosData = persona.abonos.map((a: any) => [
         a.fecha ? new Date(a.fecha).toLocaleDateString('es-CO') : '-',
         a.tipo === 'hotel' ? '🏨 Hotel' : a.tipo === 'transporte' ? '🚌 Transporte' : '📚 Seminario',
         `$${Number(a.cantidad).toLocaleString('es-CO')}`,
         a.registrado_por || '-'
       ])
 
-      const totalAbonado = persona.abonos.reduce((sum, a) => sum + Number(a.cantidad), 0)
+      const totalAbonado = persona.abonos.reduce((sum: number, a: any) => sum + Number(a.cantidad), 0)
 
       autoTable(doc, {
         startY: yPos + 18,
