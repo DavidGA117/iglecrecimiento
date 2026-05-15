@@ -28,6 +28,7 @@ interface Persona {
 interface Abono {
   id: string
   cantidad: number
+  tipo: string
   fecha: Date
   registrado_por: string | null
   personas?: { nombre: string }
