@@ -17,6 +17,7 @@ interface Persona {
   telefono: string | null
   total_objetivo: number
   total_abonado: number
+  desglose?: { hotel: number; transporte: number; seminario: number }
 }
 
 export default function ConsultaPage() {

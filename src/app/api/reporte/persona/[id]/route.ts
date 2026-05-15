@@ -90,7 +90,7 @@ export async function GET(
       doc.text('No hay abonos registrados', 14, 145)
     } else {
       const abonosData = persona.abonos.map(a => [
-        new Date(a.fecha).toLocaleDateString('es-CO'),
+        a.fecha ? new Date(a.fecha).toLocaleDateString('es-CO') : '-',
         a.tipo === 'hotel' ? 'Hotel' : a.tipo === 'transporte' ? 'Transporte' : 'Seminario',
         `$${Number(a.cantidad).toLocaleString('es-CO')}`,
         a.registrado_por || '-'

@@ -27,6 +27,7 @@ interface Persona {
   total_objetivo: number
   total_abonado: number
   created_at: Date | null
+  desglose?: { hotel: number; transporte: number; seminario: number }
 }
 
 export default function PersonasPage() {
@@ -157,14 +158,15 @@ export default function PersonasPage() {
       nombre: persona.nombre,
       telefono: persona.telefono || '',
       total_objetivo: String(persona.total_objetivo),
-      cantidad_abono: ''
+      cantidad_abono: '',
+      tipo_abono: 'seminario'
     })
     setIsDialogOpen(true)
   }
 
   const resetForm = () => {
     setEditingPersona(null)
-    setFormData({ nombre: '', telefono: '', total_objetivo: '', cantidad_abono: '' })
+    setFormData({ nombre: '', telefono: '', total_objetivo: '', cantidad_abono: '', tipo_abono: 'seminario' })
   }
 
   return (
@@ -306,17 +308,17 @@ export default function PersonasPage() {
                       <TableCell className="font-medium">{persona.nombre}</TableCell>
                       <TableCell>{persona.telefono || '-'}</TableCell>
                       <TableCell className="text-center">
-                        <span className={persona.desglose?.hotel > 0 ? "text-purple-600 font-medium" : "text-gray-400"}>
+                        <span className={(persona.desglose?.hotel || 0) > 0 ? "text-purple-600 font-medium" : "text-gray-400"}>
                           ${Number(persona.desglose?.hotel || 0).toLocaleString('es-CO')}
                         </span>
                       </TableCell>
                       <TableCell className="text-center">
-                        <span className={persona.desglose?.transporte > 0 ? "text-orange-600 font-medium" : "text-gray-400"}>
+                        <span className={(persona.desglose?.transporte || 0) > 0 ? "text-orange-600 font-medium" : "text-gray-400"}>
                           ${Number(persona.desglose?.transporte || 0).toLocaleString('es-CO')}
                         </span>
                       </TableCell>
                       <TableCell className="text-center">
-                        <span className={persona.desglose?.seminario > 0 ? "text-green-600 font-medium" : "text-gray-400"}>
+                        <span className={(persona.desglose?.seminario || 0) > 0 ? "text-green-600 font-medium" : "text-gray-400"}>
                           ${Number(persona.desglose?.seminario || 0).toLocaleString('es-CO')}
                         </span>
                       </TableCell>
