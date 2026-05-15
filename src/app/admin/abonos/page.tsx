@@ -90,7 +90,7 @@ export default function AbonosPage() {
       if (res.ok) {
         toast.success('Abono registrado')
         setIsDialogOpen(false)
-        setFormData({ persona_id: '', cantidad: '' })
+        setFormData({ persona_id: '', cantidad: '', tipo: 'seminario' })
         fetchData()
       } else {
         toast.error('Error al registrar abono')
