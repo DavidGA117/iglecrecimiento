@@ -6,8 +6,8 @@ export async function GET() {
     const personas = await prisma.personas.findMany()
     const abonos = await prisma.abonos.findMany()
 
-    const totalRecaudado = abonos.reduce((sum, a) => sum + Number(a.cantidad), 0)
-    const totalObjetivo = personas.reduce((sum, p) => sum + Number(p.total_objetivo), 0)
+    const totalRecaudado = abonos.reduce((sum: number, a: any) => sum + Number(a.cantidad), 0)
+    const totalObjetivo = personas.reduce((sum: number, p: any) => sum + Number(p.total_objetivo || 0), 0)
 
     return NextResponse.json({
       personas: personas.length,
